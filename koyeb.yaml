@@ -1,0 +1,13 @@
+# koyeb.yaml
+   services:
+     - name: terminal-bot
+       ports:
+         - port: 8765
+           http_path: /websocket
+       env:
+         - key: TELEGRAM_BOT_TOKEN
+           value: your_bot_token
+         - key: AUTHORIZED_USERS
+           value: "123456789"
+       run:
+         command: ["sh", "-c", "python stream_server.py & python main.py"]
